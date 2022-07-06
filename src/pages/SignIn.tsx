@@ -61,6 +61,7 @@ function SignIn() {
   );
 }
 
+//style Sheet 작성법
 const styles = StyleSheet.create({
   inputWrapper: {padding: 20},
   textInput: {padding: 5, borderBottomWidth: StyleSheet.hairlineWidth},
