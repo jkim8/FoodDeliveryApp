@@ -4,7 +4,7 @@ import {
   createNativeStackNavigator,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
-import {Text, TouchableHighlight, View} from 'react-native';
+import {Text, Pressable, Button, TouchableNativeFeedback, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, View} from 'react-native';
 import {useCallback} from 'react';
 
 type RootStackParamList = {
@@ -20,11 +20,16 @@ function HomeScreen({navigation}: HomeScreenProps) {
   }, [navigation]);
 
   return (
-          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <TouchableHighlight onPress={onClick}>
-              <Text>Home Screen</Text>
-            </TouchableHighlight>
+    <>
+          <View style={{flex: 1, backgroundColor: 'yellow', alignItems: 'flex-end', justifyContent: 'center'}}>
+            <Pressable onPress={onClick} style={{paddingHorizontal: 20, paddingVertical: 20, backgroundColor: 'blue'}}>
+              <Text style={{color: 'white'}}>Home Screen</Text>
+            </Pressable>
           </View>
+          <View style={{flex:1, backgroundColor: 'orange', alignItems: 'center', justifyContent: 'center'}}>
+            <Text>Second</Text>
+          </View>
+    </>
   );
 }
 
@@ -50,7 +55,7 @@ function App() {
               <Stack.Screen
                       name="Home"
                       component={HomeScreen}
-                      options={{title: 'Overview'}}
+                      options={{title: '홈화면'}}
               />
               <Stack.Screen name="Details" component={DetailsScreen} />
             </Stack.Navigator>
