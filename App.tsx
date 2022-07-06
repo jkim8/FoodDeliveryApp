@@ -16,7 +16,7 @@ export type LoggedInParamList = {
   Complete: {orderId: string};
 };
 
-//로그인 한 상태와 하지 않은 상태 보여주는 화면 
+//로그인 한 상태와 하지 않은 상태 보여주는 화면
 export type RootStackParamList = {
   SignIn: undefined;
   SignUp: undefined;
@@ -26,7 +26,7 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true);
   return (
     <NavigationContainer>
       {isLoggedIn ? (
