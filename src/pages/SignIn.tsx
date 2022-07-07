@@ -37,7 +37,7 @@ function SignIn({navigation}: SignScreenProps) {
   }, [email, password]);
 
   const toSignUp = useCallback(() => {
-    navigation.navigation('signUp');
+    navigation.navigate('SignUp');
   }, [navigation]);
 
   const canGoNext = email && password;
