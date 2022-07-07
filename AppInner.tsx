@@ -10,11 +10,24 @@ import {RootState} from './src/store/reducer';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+export type LoggedInParamList = {
+  Orders: undefined;
+  Settings: undefined;
+  Delivery: undefined;
+  Complete: {orderId: string};
+};
+
+export type RootStackParamList = {
+  SignIn: undefined;
+  SignUp: undefined;
+};
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-const isLoggedIn = useSelector((state: RootState) => !!state.user.email);
 
 function AppInner() {
+  const isLoggedIn = useSelector((state: RootState) => !!state.user.email);
+
   return (
     <NavigationContainer>
       {isLoggedIn ? (
