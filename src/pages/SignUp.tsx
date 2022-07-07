@@ -75,6 +75,7 @@ function SignUp({navigation}: SignUpScreenProps) {
           ref={emailRef}
           onSubmitEditing={() => nameRef.current?.focus()}
           blurOnSubmit={false}
+          keyboardType="email-address"
         />
       </View>
       <View style={styles.inputWrapper}>
