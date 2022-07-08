@@ -14,13 +14,13 @@ import DismissKeyboardView from '../components/DismissKeyboardView';
 import axios, {AxiosError} from 'axios';
 import Config from 'react-native-config';
 import {RootStackParamList} from '../../AppInner';
-import {useAppDispatch} from '../store';
+import {useAppDispatch} from '../store'; // Diapatch 가져오기
 import userSlice from '../slices/user';
 
 type SignInScreenProps = NativeStackScreenProps<RootStackParamList, 'SignIn'>;
 
 function SignIn({navigation}: SignInScreenProps) {
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch(); //Dispatch 가져오는것
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
