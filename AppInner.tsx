@@ -32,9 +32,8 @@ function AppInner() {
   useEffect(() => {
     if (!isLoggedIn) {
       console.log('!isLoggedIn', !isLoggedIn);
-      disconnect();
     }
-  }, [isLoggedIn, disconnect]);
+  }, [isLoggedIn]);
 
   return isLoggedIn ? (
     <Tab.Navigator>

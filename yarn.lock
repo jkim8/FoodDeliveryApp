@@ -5895,6 +5895,11 @@
   "resolved" "https://registry.npmjs.org/react-native-config/-/react-native-config-1.4.6.tgz"
   "version" "1.4.6"
 
+"react-native-encrypted-storage@^4.0.2":
+  "integrity" "sha512-vneDkHGDuTvLQjUBztqb2YI8QoH1zxdJonPGTS+g57lfJZff9fAjoLSSb6NgMBebpXFcK3I3sEresGyL+3AArw=="
+  "resolved" "https://registry.npmjs.org/react-native-encrypted-storage/-/react-native-encrypted-storage-4.0.2.tgz"
+  "version" "4.0.2"
+
 "react-native-flipper@^0.152.0":
   "integrity" "sha512-sbEHjDEUW/alhQ3Ov5f7FMKwcCvlWCUL9Q6mvoW4mSkSSG8h/Ppq5nO97lYJL1CfUq6e+jkDvp71Wb7YZ1ofDg=="
   "resolved" "https://registry.npmjs.org/react-native-flipper/-/react-native-flipper-0.152.0.tgz"
