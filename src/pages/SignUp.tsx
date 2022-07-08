@@ -65,6 +65,8 @@ function SignUp({navigation}: SignUpScreenProps) {
     try {
       //요청을 보내기 직전에 로딩 true
       setLoading(true);
+      console.log(Config.API_URL);
+
       //http 메서드: get, put, patch, post, delete, head, options
       const response = await axios.post(
         `${Config.API_URL}/user`, //네아버에 내 아이피 적기
@@ -77,6 +79,7 @@ function SignUp({navigation}: SignUpScreenProps) {
       );
       console.log(response);
       Alert.alert('알림', '회원가입 되었습니다.');
+      navigation.navigate('SignIn');
     } catch (error) {
       const errorResponse = (error as AxiosError).response;
       console.error();
@@ -86,8 +89,7 @@ function SignUp({navigation}: SignUpScreenProps) {
     } finally {
       setLoading(false);
     }
-    Alert.alert('알림', '회원가입 되었습니다.');
-  }, [loading, email, name, password]);
+  }, [navigation, loading, email, name, password]);
 
   const canGoNext = email && name && password;
   return (
