@@ -151,7 +151,7 @@ function SignUp({navigation}: SignUpScreenProps) {
           disabled={!canGoNext || loading}
           onPress={onSubmit}>
           {loading ? (
-            <ActivityIndicator color="white" /> //로딩중 동그라미 돌아가는 것
+            <ActivityIndicator color="white" /> //로딩중 동그라미 돌아가는 모션
           ) : (
             <Text style={styles.loginButtonText}>회원가입</Text>
           )}
