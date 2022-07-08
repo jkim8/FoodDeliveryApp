@@ -55,9 +55,10 @@ function SignIn({navigation}: SignInScreenProps) {
         userSlice.actions.setUser({
           name: response.data.data.name,
           email: response.data.data.email,
-          accessToken: response.data.data.accessToken,
+          accessToken: response.data.data.accessToken, //유효기간 10분,5분 ,1시간
         }),
       );
+      //털리지 않게 안전하게 보관, 시간연장 할때 씀 유효기간 연장 유효기간이 하루 30일
       await EncryptedStorage.setItem(
         'refreshToken',
         response.data.data.refreshToken,
