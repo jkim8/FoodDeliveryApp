@@ -4,7 +4,6 @@ const initialState = {
   name: '',
   email: '',
   accessToken: '',
-  refreshToken: '',
 };
 const userSlice = createSlice({
   name: 'user',
