@@ -9,6 +9,7 @@ import {RootState} from '../store/reducer';
 import Config from 'react-native-config';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {LoggedInParamList} from '../../AppInner';
+import EncryptedStorage from 'react-native-encrypted-storage';
 
 function EachOrder({item}: {item: Order}) {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ function EachOrder({item}: {item: Order}) {
         {orderId: item.orderId},
         {headers: {authorization: `Bearer ${accessToken}`}},
       );
+      setLoading(true);
       dispatch(orderSlice.actions.acceptOrder(item.orderId));
       navigation.navigate('Delivery');
     } catch (error) {
@@ -36,7 +38,6 @@ function EachOrder({item}: {item: Order}) {
         Alert.alert('알림', errorResponse.data.message);
         dispatch(orderSlice.actions.rejectOrder(item.orderId));
       }
-    } finally {
       setLoading(true);
     }
     dispatch(orderSlice.actions.acceptOrder(item.orderId));

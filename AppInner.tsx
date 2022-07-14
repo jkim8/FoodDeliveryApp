@@ -40,6 +40,39 @@ function AppInner() {
   const [socket, disconnect] = useSocket();
 
   useEffect(() => {
+    axios.interceptors.response.use(
+      response => {
+        console.log(response);
+
+        return response;
+      },
+      async error => {
+        const {
+          config,
+          response: {status},
+        } = error;
+        if (status === 419) {
+          if (error.response.data.code === 'expired') {
+            const originalRequest = config;
+            const refreshToken = await EncryptedStorage.getItem('refreshToken');
+            //token refresh 요청
+            const {data} = await axios.post(
+              `${Config.API_URL}/refreshToken`,
+              {},
+              {headers: {authorization: `Bearer ${refreshToken}`}},
+            );
+            //새로운 토큰 저장
+            dispatch(userSlice.actions.setAccessToken(data.data.accessToken));
+            originalRequest.headers.authorization = `Bearer ${data.data.accessToken}`;
+            return originalRequest;
+          }
+        }
+        return Promise.reject(error);
+      },
+    );
+  }, [dispatch]);
+
+  useEffect(() => {
     const callback = (data: any) => {
       console.log(data);
       dispatch(orderSlice.actions.addOrder(data));
