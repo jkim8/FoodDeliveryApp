@@ -3,6 +3,7 @@ import {
   Alert,
   Dimensions,
   Image,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -63,8 +64,7 @@ function Complete() {
     return ImagePicker.openCamera({
       includeBase64: true,
       includeExif: true,
-      // saveToPhotos: true,
-      cropping: true,
+      saveToPhotos: true,
     })
       .then(onResponse)
       .catch(console.log);
@@ -91,8 +91,16 @@ function Complete() {
       return;
     }
     const formData = new FormData();
-    formData.append('image', image);
     formData.append('orderId', orderId);
+    formData.append('image', image, {
+      name: image.name,
+      type: image.type || 'image/jpeg',
+      uri:
+        Platform.OS === 'android'
+          ? image.uri
+          : image.uri.replace('file://', ''),
+    });
+
     try {
       await axios.post(`${Config.API_URL}/complete`, formData, {
         headers: {
