@@ -9,7 +9,7 @@ import {
 import React, {useCallback, useState} from 'react';
 import orderSlice, {Order} from '../slices/order';
 import {useAppDispatch} from '../store';
-// import getDistanceFromLatLonInKm from '../util';
+import getDistanceFromLatLonInKm from '../util';
 import axios, {AxiosError} from 'axios';
 import {useSelector} from 'react-redux';
 import {RootState} from '../store/reducer';
@@ -64,7 +64,7 @@ function EachOrder({item}: Props) {
         <Text style={styles.eachInfo}>
           {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
         </Text>
-        {/* <Text style={styles.eachInfo}>
+        <Text style={styles.eachInfo}>
           {getDistanceFromLatLonInKm(
             start.latitude,
             start.longitude,
@@ -72,7 +72,9 @@ function EachOrder({item}: Props) {
             end.longitude,
           ).toFixed(1)}
           km
-        </Text> */}
+        </Text>
+        <Text>삼성동</Text>
+        <Text>왕십리동</Text>
       </Pressable>
       {detail && (
         <View>
