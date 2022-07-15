@@ -73,8 +73,8 @@ function EachOrder({item}: Props) {
           ).toFixed(1)}
           km
         </Text>
-        <Text>삼성동</Text>
-        <Text>왕십리동</Text>
+        <Text style={styles.eachInfo}>삼성동</Text>
+        <Text style={styles.eachInfo}>어딘가</Text>
       </Pressable>
       {detail && (
         <View>
